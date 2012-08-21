@@ -20,8 +20,8 @@
  */
 (function(window, document, undefined){
 
-  // Agent
-  var agent = window.agent = (function(){
+  // Detect
+  var detect = window.detect = (function(){
     
     var _this = function(){
 
