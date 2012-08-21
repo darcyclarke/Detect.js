@@ -21,7 +21,7 @@
 (function(window, document, undefined){
 
   // Detect
-  var detect = (function(){
+  var detect = window.detect = (function(){
     
     var _this = function(){
 
