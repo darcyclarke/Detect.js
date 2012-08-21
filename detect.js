@@ -26,7 +26,7 @@
       var _this = this;
 
       // User-Agent Parsed
-      var ua_parsers = regexes.user_agent_parsers.map(function(obj) {
+      var ua_parsers = regexes["user_agent_parsers"].map(function(obj) {
         var regexp = new RegExp(obj.regex),
             famRep = obj.family_replacement,
             majorVersionRep = obj.major_version_replacement;
@@ -46,7 +46,7 @@
 
       
       // Operating Systems Parsed
-      var os_parsers = regexes.os_parsers.map(function(obj) {
+      var os_parsers = regexes["os_parsers"].map(function(obj) {
         var regexp = new RegExp(obj.regex),
             osRep  = obj.os_replacement;
         function parser(ua) {
