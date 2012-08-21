@@ -22,8 +22,8 @@
 
   // Detect
   var detect = window.detect = (function(){
-    
-    var _this = function(){
+
+      var _this = this;
 
       // User-Agent Parsed
       var ua_parsers = regexes.user_agent_parsers.map(function(obj) {
@@ -1094,6 +1094,6 @@
 
     return _this;
 
-  });
+  })({});
 
 })(window, document);
