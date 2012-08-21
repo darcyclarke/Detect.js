@@ -21,7 +21,7 @@
 (function(window, document, undefined){
 
   // Agent
-  var agent = (function(){
+  var agent = window.agent = (function(){
     
     var _this = function(){
 
