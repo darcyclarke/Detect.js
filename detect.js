@@ -64,7 +64,7 @@
        *
        * @param (String) the user-agent string to parse
        */
-      function parse(ua) {
+      this.parse(ua) {
         var os, i;
         for (i=0; i < ua_parsers.length; i++) {
           var result = ua_parsers[i](ua);
