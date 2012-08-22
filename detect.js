@@ -1129,7 +1129,7 @@
   // AMD define happens at the end for compatibility with AMD 
   // that don't enforce next-turn semantics on modules
   if (typeof define === 'function' && define.amd) {
-    define('detect', function() {
+    define(function(require) {
       return detect;
     });
   }
