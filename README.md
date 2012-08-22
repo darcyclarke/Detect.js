@@ -10,6 +10,7 @@ As initially touted, the biggest contribution to this code is the work of Steve 
 Features
 --------
 * Detect.js has AMD support but is not dependant on a library like [Require.js][4] or [Common.js][3] to be used
+* Adds support for "device". If no device is specified in the User Agent string then it defaults to `null`
  
 Example Use
 -----------
@@ -38,6 +39,9 @@ console.log(ua.minor);
 
 console.log(ua.patch);
 // -> 1
+
+console.log(ua.device);
+// -> "iPad"
 ````
 
 #### Common.js:
