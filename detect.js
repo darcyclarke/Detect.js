@@ -1009,14 +1009,15 @@
     var _this = function(){};
 
     // User-Agent Parsed
-    var ua_parsers = regexes.user_agent_parsers.map(function(obj) {
+    var ua_parsers = regexes.user_agent_parsers.map(function(obj){
       var regexp = new RegExp(obj.regex),
           famRep = obj.family_replacement,
           majorVersionRep = obj.major_version_replacement;
 
-      function parser(ua) {
+      function parser(ua){
         var m = ua.match(regexp);
-        if (!m) { return null; }
+        if (!m)
+          return null;
         var family = famRep ? famRep.replace('$1', m[1]) : m[1];
         var obj = new UserAgent(family);
         obj.major = parseInt(majorVersionRep ? majorVersionRep : m[2]);
@@ -1027,49 +1028,50 @@
       return parser;
     });
 
-    
-    // Operating Systems Parsed
-    var os_parsers = regexes.os_parsers.map(function(obj) {
-      var regexp = new RegExp(obj.regex),
-          osRep  = obj.os_replacement;
-      function parser(ua) {
-        var m = ua.match(regexp);
-        if(!m) { return null; }
-        var os = (osRep ? osRep : m[1]) + (m.length > 2 ? " " + m[2] : "");
-        return os;
+    // Find Utility
+    var find = function(ua, obj){
+      for(var i=0; i < obj.length; i++){
+        var ret = obj[i](ua);
+        if(ret)
+          break;
       }
-      return parser;
-    });
+      return ret;
+    };
+
+    // Parsers Utility
+    var parsers = function(type){
+      return regexes[type + '_parsers'].map(function(obj){
+        var regexp = new RegExp(obj.regex),
+            rep = obj[type + '_replacement'];
+        function parser(ua){
+          var m = ua.match(regexp);
+          if(!m)
+            return null;
+          var str = (rep ? rep : m[1]) + (m.length > 2 ? ' ' + m[2] : '');
+          return str;
+        }
+        return parser;
+      });
+    };
+
+    // Operating Systems Parsed
+    var os_parsers = parsers('os');
 
     // Devices Parsed
-    var device_parsers = regexes.device_parsers.map(function(obj) {
-      var regexp = new RegExp(obj.regex),
-          osRep  = obj.device_replacement;
-      function parser(ua) {
-        var m = ua.match(regexp);
-        if(!m) { return null; }
-        var os = (osRep ? osRep : m[1]) + (m.length > 2 ? " " + m[2] : "");
-        return os;
-      }
-      return parser;
-    });
+    var device_parsers = parsers('device');
 
-    /*
-     * User Agent
-     *
-     * @param (String)
-     */
-    function UserAgent(family) {
+    // User Agent
+    function UserAgent(family){
       this.family = family || 'Other';
     }
 
-    UserAgent.prototype.toVersionString = function() {
+    UserAgent.prototype.toVersionString = function(){
       var output = '';
-      if (this.major != null) {
+      if (this.major != null){
         output += this.major;
-        if (this.minor != null) {
+        if (this.minor != null){
           output += '.' + this.minor;
-          if (this.patch != null) {
+          if (this.patch != null){
             output += '.' + this.patch;
           }
         }
@@ -1077,39 +1079,33 @@
       return output;
     };
 
-    UserAgent.prototype.toString = function() {
+    // Browser String Utility
+    UserAgent.prototype.toString = UserAgent.prototype.toBrowserString = function(){
       var suffix = this.toVersionString();
-      if (suffix) { suffix = ' ' + suffix; }
+      if (suffix)
+        suffix = ' ' + suffix;
       return this.family + suffix;
     };
 
-    UserAgent.prototype.toFullString = function() {
+    // Platform String Utility
+    UserAgent.prototype.toPlatformString = function(){
       return this.toString() + (this.os ? "/" + this.os : "");
     };
 
-    /*
-     * Parse User-Agent String
-     *
-     * @param (String) the user-agent string to parse
-     */
-    _this.parse = function(ua) {
-      var os, i;
-      for (i=0; i < ua_parsers.length; i++) {
-        var result = ua_parsers[i](ua);
-        if (result) { break; }
-      }
-      for (i=0; i < os_parsers.length; i++) {
-        os = os_parsers[i](ua);
-        if (os) { break; }
-      }
-      for (i=0; i < device_parsers.length; i++) {
-        device = device_parsers[i](ua);
-        if (device) { break; }
-      }
-      if(!result) { result = new UserAgent(); }
-      result.os = os;
-      result.device = device;
-      return result;
+    // Full String Utility
+    UserAgent.prototype.toFullString = function(){
+      return this.toPlatformString() + (this.device ? "/" + this.device : "");
+    };
+
+    // Parse User-Agent String
+    _this.parse = function(ua){
+      
+      var agent = find(ua, ua_parsers);
+      agent = (!agent) ? new UserAgent() : agent;
+      agent.os = find(ua, os_parsers);
+      agent.device = find(ua, device_parsers);
+      return agent;
+
     }
 
     return _this;
