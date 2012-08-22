@@ -10,12 +10,10 @@ Detect.js
 
 ## Features
 ---------------
-
 * Detect.js has AMD support but is not dependant on a library like Require.js or Common.js to be used
  
 ## Example Use
 ---------------
- 
 #### Plain JS:
 ```html
 <script src="detect.js">&lt;/script>
