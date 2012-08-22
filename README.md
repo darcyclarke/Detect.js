@@ -8,12 +8,12 @@ Detect.js
  * The core JavaScript is Copyright 2010 Tobie Langel and is available under choice of MIT or Apache Version 2.0 license.
  * The data contained in regexes JSON is Copyright 2009 Google Inc. and available under the Apache License, Version 2.0.
 
-## Features
------------
+Features
+--------
 * Detect.js has AMD support but is not dependant on a library like Require.js or Common.js to be used
  
-## Example Use
---------------
+Example Use
+-----------
 #### Plain JS:
 ```html
 <script src="detect.js"></script>
