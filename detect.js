@@ -1097,6 +1097,11 @@
       return this.toPlatformString() + (this.device ? "/" + this.device : "");
     };
 
+    // To JSON Utility
+    UserAgent.prototype.toJSON = function(){
+      return { major: this.major, minor: this.minor, patch: this.patch, device: this.device, os: this.os, family: this.family };
+    };
+
     // Parse User-Agent String
     _this.parse = function(ua){
       
