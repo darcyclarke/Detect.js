@@ -18,11 +18,11 @@
  * Documentation: 
  * https://github.com/tobie/ua-parser#usage--nodejs
  */
-(function(window, document, undefined){
+(function(root, undefined){
 
   // Detect
-  var detect = window.detect = (function(){
-    
+  var detect = root.detect = (function(){
+
     // Regular Expressions
     var regexes = {
       "user_agent_parsers": [
@@ -786,7 +786,7 @@
         {
           "regex": "(iPhone);"
         }, 
-        }
+        {
           "regex": "Nexus\\; ([A-Za-z0-9\\-]+)", 
           "device_replacement": "Nexus $1"
         }, 
@@ -1116,4 +1116,26 @@
 
   })();
 
-})(window, document);
+  // Export the Underscore object for **Node.js** and **"CommonJS"**, 
+  // backwards-compatibility for the old `require()` API. If we're not 
+  // CommonJS, add `_` to the global object via a string identifier 
+  // the Closure Compiler "advanced" mode. Registration as an AMD 
+  // via define() happens at the end of this file
+  if (typeof exports !== 'undefined') {
+    if (typeof module !== 'undefined' && module.exports) {
+      exports = module.exports = detect;
+    }
+    exports.detect = detect;
+  } else {
+    root['detect'] = detect;
+  }
+
+  // AMD define happens at the end for compatibility with AMD 
+  // that don't enforce next-turn semantics on modules
+  if (typeof define === 'function' && define.amd) {
+    define('detect', function() {
+      return detect;
+    });
+  }
+
+})(window);
