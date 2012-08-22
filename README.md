@@ -16,7 +16,7 @@ Detect.js
 ---------------
 #### Plain JS:
 ```html
-<script src="detect.js">&lt;/script>
+<script src="detect.js"></script>
 ````
 
 ```javascript
