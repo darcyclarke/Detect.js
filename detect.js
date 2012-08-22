@@ -787,7 +787,7 @@
           "regex": "(iPhone);"
         }, 
         {
-          "regex": "Nexus\\; ([A-Za-z0-9\\-]+)", 
+          "regex": "Nexus\\ ([A-Za-z0-9\\-]+)", 
           "device_replacement": "Nexus $1"
         }, 
         {
@@ -1104,7 +1104,7 @@
       }
       for (i=0; i < device_parsers.length; i++) {
         device = device_parsers[i](ua);
-        if (os) { break; }
+        if (device) { break; }
       }
       if(!result) { result = new UserAgent(); }
       result.os = os;
