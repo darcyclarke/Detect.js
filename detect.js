@@ -1008,6 +1008,15 @@
     // Context
     var _this = function(){};
 
+    // Mobile Check
+    var mobile_agents = {};
+    var mobile_user_agent_families = regexes.mobile_user_agent_families.map(function(str) {
+      mobile_agents[str] = true;
+    });
+    var mobile_os_families = regexes.mobile_os_families.map(function(str) {
+      mobile_agents[str] = true;
+    });
+
     // User-Agent Parsed
     var ua_parsers = regexes.user_agent_parsers.map(function(obj){
       var regexp = new RegExp(obj.regex),
@@ -1023,6 +1032,9 @@
         obj.major = parseInt(majorVersionRep ? majorVersionRep : m[2]);
         obj.minor = m[3] ? parseInt(m[3]) : null;
         obj.patch = m[4] ? parseInt(m[4]) : null; 
+        obj.isMobile = mobile_agents.hasOwnProperty(family);
+        obj.isSpider = (family === 'Spider');
+
         return obj;
       }
       return parser;
@@ -1032,8 +1044,9 @@
     var find = function(ua, obj){
       for(var i=0; i < obj.length; i++){
         var ret = obj[i](ua);
-        if(ret)
+        if(ret){
           break;
+        }
       }
       return ret;
     };
@@ -1047,8 +1060,13 @@
           var m = ua.match(regexp);
           if(!m)
             return null;
-          var str = (rep ? rep : m[1]) + (m.length > 2 ? ' ' + m[2] : '');
-          return str;
+          var obj = {};
+          obj.family = (rep ? rep.replace('$1', m[1]) : m[1]);
+          console.log(m);
+          obj.major = m[2] ? parseInt(m[2]) : null;
+          obj.minor = m[3] ? parseInt(m[3]) : null;
+          obj.patch = m[4] ? parseInt(m[4]) : null;
+          return obj;
         }
         return parser;
       });
