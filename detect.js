@@ -1,5 +1,5 @@
 /**
- * User-Agent Parser Wrapper
+ * Detect.js: User-Agent Parser Wrapper
  * @author Darcy Clarke
  *
  * Dual licensed under the MIT and GPL licenses.
@@ -13,7 +13,7 @@
  * and available under the Apache License, Version 2.0.
  *
  * Library Usage:
- * agent.parse(navigator.userAgent).toString(); // outputs 'Chrome 21.0.1'
+ * detect.parse(navigator.userAgent).toString(); // 'Chrome 21.0.1'
  *
  * Documentation: 
  * https://github.com/tobie/ua-parser#usage--nodejs
