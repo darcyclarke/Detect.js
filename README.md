@@ -33,29 +33,29 @@ Mozilla/5.0 (iPhone; U; CPU iPhone OS 4_0 like Mac OS X; en-us) AppleWebKit/532.
 
 var ua = detect.parse(navigator.userAgent);
 
-console.log(ua.browser.family);	 // "Mobile Safari"
-console.log(ua.browser.major); // 4
-console.log(ua.browser.minor); // 0
-console.log(ua.browser.patch); // 5
+ua.browser.family // "Mobile Safari"
+ua.browser.major // 4
+ua.browser.minor // 0
+ua.browser.patch // 5
 
-console.log(ua.device.family); // "iPhone"
-console.log(ua.device.major); // null
-console.log(ua.device.minor); // null
-console.log(ua.device.patch); // null
+ua.device.family // "iPhone"
+ua.device.major // null
+ua.device.minor // null
+ua.device.patch // null
 
-console.log(ua.os.family); // "iOS"
-console.log(ua.os.major); // 4
-console.log(ua.os.minor); // 0
-console.log(ua.os.patch); // null
+ua.os.family // "iOS"
+ua.os.major // 4
+ua.os.minor // 0
+ua.os.patch // null
 
-console.log(ua.toString()); // "Mobile Safari 4.0.5"
-console.log(ua.toVersionString()); // "5.1"
+ua.toString() // "Mobile Safari 4.0.5"
+ua.toVersionString() // "5.1"
 
-console.log(ua.toString('device')); // "iPhone"
-console.log(ua.toVersionString('device')) // ""
+ua.toString('device') // "iPhone"
+ua.toVersionString('device') // ""
 
-console.log(ua.toString('os')); // "iOS 4.0"
-console.log(ua.toVersionString('os')); // "4.0"
+ua.toString('os') // "iOS 4.0"
+ua.toVersionString('os') // "4.0"
 ````
 
 #### Common.js:
