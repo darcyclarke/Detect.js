@@ -1029,9 +1029,9 @@
           return null;
         var family = famRep ? famRep.replace('$1', m[1]) : m[1];
         var obj = new UserAgent(family);
-        obj.major = parseInt(majorVersionRep ? majorVersionRep : m[2]);
-        obj.minor = m[3] ? parseInt(m[3]) : null;
-        obj.patch = m[4] ? parseInt(m[4]) : null; 
+        obj.browser.major = parseInt(majorVersionRep ? majorVersionRep : m[2]);
+        obj.browser.minor = m[3] ? parseInt(m[3]) : null;
+        obj.browser.patch = m[4] ? parseInt(m[4]) : null; 
         obj.isMobile = mobile_agents.hasOwnProperty(family);
         obj.isSpider = (family === 'Spider');
 
@@ -1062,7 +1062,6 @@
             return null;
           var obj = {};
           obj.family = (rep ? rep.replace('$1', m[1]) : m[1]);
-          console.log(m);
           obj.major = m[2] ? parseInt(m[2]) : null;
           obj.minor = m[3] ? parseInt(m[3]) : null;
           obj.patch = m[4] ? parseInt(m[4]) : null;
@@ -1080,55 +1079,55 @@
 
     // User Agent
     function UserAgent(family){
-      this.family = family || 'Other';
+      this.browser = {};
+      this.browser.family = family || 'Other';
     }
 
-    UserAgent.prototype.toVersionString = function(){
+    // Check String
+    function check(str){
+      return (typeof str != 'undefined' && str != null);
+    }
+
+    // Type - To Version String Utility
+    UserAgent.prototype.toVersionString = function(type){
       var output = '';
-      if (this.major != null){
-        output += this.major;
-        if (this.minor != null){
-          output += '.' + this.minor;
-          if (this.patch != null){
-            output += '.' + this.patch;
+      type = type || 'browser';
+      if(check(this[type])){
+        if(check(this[type].major)){
+          output += this[type].major;
+          if(check(this[type].minor)){
+            output += '.' + this[type].minor;
+            if(check(this[type].patch)){
+              output += '.' + this[type].patch;
+            }
           }
         }
       }
       return output;
     };
 
-    // Browser String Utility
-    UserAgent.prototype.toString = UserAgent.prototype.toBrowserString = function(){
-      var suffix = this.toVersionString();
-      if (suffix)
+    // Type - To String Utility
+    UserAgent.prototype.toString = function(type){
+      type = type || 'browser';
+      var suffix = this.toVersionString(type);
+      if(suffix)
         suffix = ' ' + suffix;
-      return this.family + suffix;
-    };
-
-    // Platform String Utility
-    UserAgent.prototype.toPlatformString = function(){
-      return this.toString() + (this.os ? "/" + this.os : "");
-    };
-
-    // Full String Utility
-    UserAgent.prototype.toFullString = function(){
-      return this.toPlatformString() + (this.device ? "/" + this.device : "");
+      return (this[type] && check(this[type].family)) ? this[type].family + suffix : '';
     };
 
     // To JSON Utility
-    UserAgent.prototype.toJSON = function(){
-      return { major: this.major, minor: this.minor, patch: this.patch, device: this.device, os: this.os, family: this.family };
+    UserAgent.prototype.toJSON = function(type){
+      type = type || 'browser';
+      return this[type] || {};
     };
 
     // Parse User-Agent String
     _this.parse = function(ua){
-      
       var agent = find(ua, ua_parsers);
       agent = (!agent) ? new UserAgent() : agent;
       agent.os = find(ua, os_parsers);
       agent.device = find(ua, device_parsers);
       return agent;
-
     }
 
     return _this;
