@@ -1,9 +1,9 @@
 Detect.js
 =========
 
-@version 2.0
+@version 2.1.0
 
-**Note:** Detect.js is a JavaScript library to detect platforms and versions based on the `navigator.userAgent` string. This code is based on, and modified from, the original work of Tobie Langel's UA-Parser: https://github.com/tobie/ua-parser. UA-Parser is subsequently a port of [BrowserScope][1]'s [user agent string parser][2].
+**Note:** Detect.js is a JavaScript library to detect platforms, versions, manufacturers and types based on the `navigator.userAgent` string. This code is based on, and modified from, the original work of Tobie Langel's UA-Parser: https://github.com/tobie/ua-parser. UA-Parser is subsequently a port of [BrowserScope][1]'s [user agent string parser][2].
 
 As initially touted, the biggest contribution to this code is the work of Steve Souders and the list of regex tests.
 
@@ -12,10 +12,17 @@ Features
 
 * User-Agent parsing (obviously)
 * AMD/Common.js support
-* **device**, **os** and **browser** detection. Defaults to `null` for `family`, `major`, `minor` and `patch` if not able to detect. Also includes `name` and `version` strings for each category.
+* **device**, **os** and **browser** detection of:
+	* `name`
+	* `family`
+	* `version`
+	* `major`
+	* `minor`
+	* `patch` 
+	* **device** supports: `manufacturer` and `type` as well
 
  
-Example Usage
+Example
 -----------
 #### Plain JS:
 ```html
@@ -44,6 +51,8 @@ ua.device.version // ""
 ua.device.major // null
 ua.device.minor // null
 ua.device.patch // null
+ua.device.type // "Mobile"
+ua.device.manufacturer // "Apple"
 
 ua.os.family // "iOS"
 ua.os.name // "iOS 4"
