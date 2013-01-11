@@ -29,7 +29,7 @@
         {
           "regex": "^(Opera)/(\\d+)\\.(\\d+) \\(Nintendo Wii", 
           "family_replacement": "Wii",
-          "manufacturer": "Nintento"
+          "manufacturer": "Nintendo"
         }, 
         {
           "regex": "(SeaMonkey|Camino)/(\\d+)\\.(\\d+)\\.?([ab]?\\d+[a-z]*)",
