@@ -18,7 +18,8 @@
     browser_parsers: [
       {
         "regex": "^(Opera)/(\\d+)\\.(\\d+) \\(Nintendo Wii", 
-        "family_replacement": "Wii"
+        "family_replacement": "Wii",
+        "manufacturer": "Nintendo"
       }, 
       {
         "regex": "(SeaMonkey|Camino)/(\\d+)\\.(\\d+)\\.?([ab]?\\d+[a-z]*)",
@@ -72,7 +73,8 @@
       }, 
       {
         "regex": "(Firefox).*Tablet browser (\\d+)\\.(\\d+)\\.(\\d+)", 
-        "family_replacement": "MicroB"
+        "family_replacement": "MicroB",
+        "tablet": true
       }, 
       {
         "regex": "(MozillaDeveloperPreview)/(\\d+)\\.(\\d+)([ab]\\d+[a-z]*)?"
@@ -106,7 +108,8 @@
       }, 
       {
         "regex": "(Opera Tablet).*Version/(\\d+)\\.(\\d+)(?:\\.(\\d+))?",
-        "family_replacement": "Opera Tablet"
+        "family_replacement": "Opera Tablet",
+        "tablet": true
       }, 
       {
         "regex": "(Opera)/.+Opera Mobi.+Version/(\\d+)\\.(\\d+)", 
@@ -327,10 +330,12 @@
       }, 
       {
         "regex": "(PLAYSTATION) (\\d+)", 
-        "family_replacement": "PlayStation"
+        "family_replacement": "PlayStation",
+        "manufacturer": "Sony"
       }, 
       {
-        "regex": "(PlayStation Portable)[^\\d]+(\\d+).(\\d+)"
+        "regex": "(PlayStation Portable)[^\\d]+(\\d+).(\\d+)",
+        "manufacturer": "Sony"
       }, 
       {
         "regex": "(BrowseX) \\((\\d+)\\.(\\d+)\\.(\\d+)",
@@ -353,39 +358,51 @@
       }, 
       {
         "regex": "(iPod).+Version/(\\d+)\\.(\\d+)\\.(\\d+)", 
-        "family_replacement": "Mobile Safari"
+        "family_replacement": "Mobile Safari",
+        "manufacturer": "Apple"
       }, 
       {
         "regex": "(iPod).*Version/(\\d+)\\.(\\d+)", 
-        "family_replacement": "Mobile Safari"
+        "family_replacement": "Mobile Safari",
+        "manufacturer": "Apple"
       }, 
       {
         "regex": "(iPod)", 
-        "family_replacement": "Mobile Safari"
+        "family_replacement": "Mobile Safari",
+        "manufacturer": "Apple"
       }, 
       {
         "regex": "(iPhone).*Version/(\\d+)\\.(\\d+)\\.(\\d+)", 
-        "family_replacement": "Mobile Safari"
+        "family_replacement": "Mobile Safari",
+        "manufacturer": "Apple"
       }, 
       {
         "regex": "(iPhone).*Version/(\\d+)\\.(\\d+)", 
-        "family_replacement": "Mobile Safari"
+        "family_replacement": "Mobile Safari",
+        "manufacturer": "Apple"
       }, 
       {
         "regex": "(iPhone)", 
-        "family_replacement": "Mobile Safari"
+        "family_replacement": "Mobile Safari",
+        "manufacturer": "Apple"
       }, 
       {
         "regex": "(iPad).*Version/(\\d+)\\.(\\d+)\\.(\\d+)", 
-        "family_replacement": "Mobile Safari"
+        "family_replacement": "Mobile Safari",
+        "tablet": true,
+        "manufacturer": "Apple"
       }, 
       {
         "regex": "(iPad).*Version/(\\d+)\\.(\\d+)", 
-        "family_replacement": "Mobile Safari"
+        "family_replacement": "Mobile Safari",
+        "tablet": true,
+        "manufacturer": "Apple"
       }, 
       {
         "regex": "(iPad)", 
-        "family_replacement": "Mobile Safari"
+        "family_replacement": "Mobile Safari",
+        "tablet": true,
+        "manufacturer": "Apple"
       }, 
       {
         "regex": "(AvantGo) (\\d+).(\\d+)",
@@ -398,49 +415,62 @@
       }, 
       {
         "regex": "^(Nokia)", 
-        "family_replacement": "Nokia Services (WAP) Browser"
+        "family_replacement": "Nokia Services (WAP) Browser",
+        "manufacturer": "Nokia"
       }, 
       {
-        "regex": "(NokiaBrowser)/(\\d+)\\.(\\d+).(\\d+)\\.(\\d+)"
+        "regex": "(NokiaBrowser)/(\\d+)\\.(\\d+).(\\d+)\\.(\\d+)",
+        "manufacturer": "Nokia"
       }, 
       {
-        "regex": "(NokiaBrowser)/(\\d+)\\.(\\d+).(\\d+)"
+        "regex": "(NokiaBrowser)/(\\d+)\\.(\\d+).(\\d+)",
+        "manufacturer": "Nokia"
       }, 
       {
-        "regex": "(NokiaBrowser)/(\\d+)\\.(\\d+)"
+        "regex": "(NokiaBrowser)/(\\d+)\\.(\\d+)",
+        "manufacturer": "Nokia"
       }, 
       {
         "regex": "(BrowserNG)/(\\d+)\\.(\\d+).(\\d+)", 
-        "family_replacement": "NokiaBrowser"
+        "family_replacement": "NokiaBrowser",
+        "manufacturer": "Nokia"
       }, 
       {
         "regex": "(Series60)/5\\.0", 
         "v2_replacement": "0", 
         "v1_replacement": "7", 
-        "family_replacement": "NokiaBrowser"
+        "family_replacement": "NokiaBrowser",
+        "manufacturer": "Nokia"
       }, 
       {
         "regex": "(Series60)/(\\d+)\\.(\\d+)", 
-        "family_replacement": "Nokia OSS Browser"
+        "family_replacement": "Nokia OSS Browser",
+        "manufacturer": "Nokia"
       }, 
       {
         "regex": "(S40OviBrowser)/(\\d+)\\.(\\d+)\\.(\\d+)\\.(\\d+)", 
-        "family_replacement": "Nokia Series 40 Ovi Browser"
+        "family_replacement": "Nokia Series 40 Ovi Browser",
+        "manufacturer": "Nokia"
       }, 
       {
-        "regex": "(Nokia)[EN]?(\\d+)"
+        "regex": "(Nokia)[EN]?(\\d+)",
+        "manufacturer": "Nokia"
       }, 
       {
         "regex": "(PlayBook).+RIM Tablet OS (\\d+)\\.(\\d+)\\.(\\d+)", 
-        "family_replacement": "Blackberry WebKit"
+        "family_replacement": "Blackberry WebKit",
+        "tablet": true,
+        "manufacturer": "Nokia"
       }, 
       {
         "regex": "(Black[bB]erry).+Version/(\\d+)\\.(\\d+)\\.(\\d+)", 
-        "family_replacement": "Blackberry WebKit"
+        "family_replacement": "Blackberry WebKit",
+        "manufacturer": "RIM"
       }, 
       {
         "regex": "(Black[bB]erry)\\s?(\\d+)", 
-        "family_replacement": "Blackberry"
+        "family_replacement": "Blackberry",
+        "manufacturer": "RIM"
       }, 
       {
         "regex": "(OmniWeb)/v(\\d+)\\.(\\d+)",
@@ -448,11 +478,13 @@
       }, 
       {
         "regex": "(Blazer)/(\\d+)\\.(\\d+)", 
-        "family_replacement": "Palm Blazer"
+        "family_replacement": "Palm Blazer",
+        "manufacturer": "Palm"
       }, 
       {
         "regex": "(Pre)/(\\d+)\\.(\\d+)", 
-        "family_replacement": "Palm Pre"
+        "family_replacement": "Palm Pre",
+        "manufacturer": "Palm"
       }, 
       {
         "regex": "(Links) \\((\\d+)\\.(\\d+)",
@@ -464,7 +496,8 @@
       }, 
       {
         "regex": "(Silk)/(\\d+)\\.(\\d+)(?:\\.([0-9\\-]+))?",
-        "other": true
+        "other": true,
+        "tablet": true
       }, 
       {
         "regex": "(AppleWebKit)/(\\d+)\\.?(\\d+)?\\+ .* Version/\\d+\\.\\d+.\\d+ Safari/", 
@@ -558,6 +591,10 @@
         "os_replacement": "Windows 8"
       }, 
       {
+        "regex": "(Windows Phone 8)",
+        "os_replacement": "Windows Phone 8"
+      },
+      {
         "regex": "(Windows NT 5\\.0)", 
         "os_replacement": "Windows 2000"
       }, 
@@ -581,22 +618,32 @@
         "other": true
       }, 
       {
-        "regex": "(Mac OS X) (\\d+)[_.](\\d+)(?:[_.](\\d+))?"
+        "regex": "(Mac OS X) (\\d+)[_.](\\d+)(?:[_.](\\d+))?",
+        "manufacturer": "Apple"
       }, 
       {
-        "regex": "(?:PPC|Intel) (Mac OS X)"
+        "regex": "(?:PPC|Intel) (Mac OS X)",
+        "manufacturer": "Apple"
       }, 
       {
         "regex": "(CPU OS|iPhone OS) (\\d+)_(\\d+)(?:_(\\d+))?", 
-        "os_replacement": "iOS"
+        "os_replacement": "iOS",
+        "manufacturer": "Apple"
       }, 
       {
         "regex": "(iPhone|iPad|iPod); Opera", 
-        "os_replacement": "iOS"
+        "os_replacement": "iOS",
+        "manufacturer": "Apple"
+      }, 
+      {
+        "regex": "(iPad); Opera",
+        "tablet": true,
+        "manufacturer": "Apple"
       }, 
       {
         "regex": "(iPhone|iPad|iPod).*Mac OS X.*Version/(\\d+)\\.(\\d+)", 
-        "os_replacement": "iOS"
+        "os_replacement": "iOS",
+        "manufacturer": "Apple"
       }, 
       {
         "regex": "(CrOS) [a-z0-9_]+ (\\d+)\\.(\\d+)(?:\\.(\\d+))?", 
@@ -644,23 +691,30 @@
       }, 
       {
         "regex": "(Black[Bb]erry)[0-9a-z]+/(\\d+)\\.(\\d+)\\.(\\d+)(?:\\.(\\d+))?", 
-        "os_replacement": "BlackBerry OS"
+        "os_replacement": "BlackBerry OS",
+        "manufacturer": "RIM"
       }, 
       {
         "regex": "(Black[Bb]erry).+Version/(\\d+)\\.(\\d+)\\.(\\d+)(?:\\.(\\d+))?", 
-        "os_replacement": "BlackBerry OS"
+        "os_replacement": "BlackBerry OS",
+        "manufacturer": "RIM"
       }, 
       {
         "regex": "(RIM Tablet OS) (\\d+)\\.(\\d+)\\.(\\d+)", 
-        "os_replacement": "BlackBerry Tablet OS"
+        "os_replacement": "BlackBerry Tablet OS",
+        "tablet": true,
+        "manufacturer": "RIM"
       }, 
       {
         "regex": "(Play[Bb]ook)", 
-        "os_replacement": "BlackBerry Tablet OS"
+        "os_replacement": "BlackBerry Tablet OS",
+        "tablet": true,
+        "manufacturer": "RIM"
       }, 
       {
         "regex": "(Black[Bb]erry)", 
-        "os_replacement": "Blackberry OS"
+        "os_replacement": "Blackberry OS",
+        "manufacturer": "RIM"
       }, 
       {
         "regex": "(webOS|hpwOS)/(\\d+)\\.(\\d+)(?:\\.(\\d+))?", 
@@ -689,55 +743,67 @@
       "Windows Phone 6.5", 
       "Windows CE", 
       "Symbian OS"
-    ], 
+    ],
     device_parsers: [
       {
         "regex": "HTC ([A-Z][a-z0-9]+) Build", 
-        "device_replacement": "HTC $1"
+        "device_replacement": "HTC $1",
+        "manufacturer": "HTC"
       }, 
       {
         "regex": "HTC ([A-Z][a-z0-9 ]+) \\d+\\.\\d+\\.\\d+\\.\\d+", 
-        "device_replacement": "HTC $1"
+        "device_replacement": "HTC $1",
+        "manufacturer": "HTC"
       }, 
       {
         "regex": "HTC_Touch_([A-Za-z0-9]+)", 
-        "device_replacement": "HTC Touch ($1)"
+        "device_replacement": "HTC Touch ($1)",
+        "manufacturer": "HTC"
       }, 
       {
         "regex": "USCCHTC(\\d+)", 
-        "device_replacement": "HTC $1 (US Cellular)"
+        "device_replacement": "HTC $1 (US Cellular)",
+        "manufacturer": "HTC"
       }, 
       {
         "regex": "Sprint APA(9292)", 
-        "device_replacement": "HTC $1 (Sprint)"
+        "device_replacement": "HTC $1 (Sprint)",
+        "manufacturer": "HTC"
       }, 
       {
         "regex": "HTC ([A-Za-z0-9]+ [A-Z])", 
-        "device_replacement": "HTC $1"
+        "device_replacement": "HTC $1",
+        "manufacturer": "HTC"
       }, 
       {
         "regex": "HTC-([A-Za-z0-9]+)", 
-        "device_replacement": "HTC $1"
+        "device_replacement": "HTC $1",
+        "manufacturer": "HTC"
       }, 
       {
         "regex": "HTC_([A-Za-z0-9]+)", 
-        "device_replacement": "HTC $1"
+        "device_replacement": "HTC $1",
+        "manufacturer": "HTC"
       }, 
       {
         "regex": "HTC ([A-Za-z0-9]+)", 
-        "device_replacement": "HTC $1"
+        "device_replacement": "HTC $1",
+        "manufacturer": "HTC"
       }, 
       {
         "regex": "(ADR[A-Za-z0-9]+)", 
-        "device_replacement": "HTC $1"
+        "device_replacement": "HTC $1",
+        "manufacturer": "HTC"
       }, 
       {
-        "regex": "(HTC)"
+        "regex": "(HTC)",
+        "manufacturer": "HTC"
       }, 
       {
         "regex": "SonyEricsson([A-Za-z0-9]+)/", 
         "device_replacement": "Ericsson $1",
-        "other": true
+        "other": true,
+        "manufacturer": "Sony"
       }, 
       {
         "regex": "Android[\\- ][\\d]+\\.[\\d]+\\; [A-Za-z]{2}\\-[A-Za-z]{2}\\; WOWMobile (.+) Build"
@@ -756,91 +822,117 @@
       }, 
       {
         "regex": "NokiaN([0-9]+)", 
-        "device_replacement": "Nokia N$1"
+        "device_replacement": "Nokia N$1",
+        "manufacturer": "Nokia"
       }, 
       {
         "regex": "Nokia([A-Za-z0-9\\v-]+)", 
-        "device_replacement": "Nokia $1"
+        "device_replacement": "Nokia $1",
+        "manufacturer": "Nokia"
       }, 
       {
         "regex": "NOKIA ([A-Za-z0-9\\-]+)", 
-        "device_replacement": "Nokia $1"
+        "device_replacement": "Nokia $1",
+        "manufacturer": "Nokia"
       }, 
       {
         "regex": "Nokia ([A-Za-z0-9\\-]+)", 
-        "device_replacement": "Nokia $1"
+        "device_replacement": "Nokia $1",
+        "manufacturer": "Nokia"
       }, 
       {
         "regex": "Lumia ([A-Za-z0-9\\-]+)", 
-        "device_replacement": "Lumia $1"
+        "device_replacement": "Lumia $1",
+        "manufacturer": "Nokia"
       }, 
       {
         "regex": "Symbian", 
-        "device_replacement": "Nokia"
+        "device_replacement": "Nokia",
+        "manufacturer": "Nokia"
       }, 
       {
         "regex": "(PlayBook).+RIM Tablet OS", 
-        "device_replacement": "Blackberry Playbook"
+        "device_replacement": "Blackberry Playbook",
+        "tablet": true,
+        "manufacturer": "RIM"
       }, 
       {
-        "regex": "(Black[Bb]erry [0-9]+);"
+        "regex": "(Black[Bb]erry [0-9]+);",
+        "manufacturer": "RIM"
       }, 
       {
         "regex": "Black[Bb]erry([0-9]+)", 
-        "device_replacement": "BlackBerry $1"
+        "device_replacement": "BlackBerry $1",
+        "manufacturer": "RIM"
       }, 
       {
         "regex": "(Pre)/(\\d+)\\.(\\d+)", 
-        "device_replacement": "Palm Pre"
+        "device_replacement": "Palm Pre",
+        "manufacturer": "Palm"
       }, 
       {
         "regex": "(Pixi)/(\\d+)\\.(\\d+)", 
-        "device_replacement": "Palm Pixi"
+        "device_replacement": "Palm Pixi",
+        "manufacturer": "Palm"
       }, 
       {
         "regex": "(Touchpad)/(\\d+)\\.(\\d+)", 
-        "device_replacement": "HP Touchpad"
+        "device_replacement": "HP Touchpad",
+        "manufacturer": "HP"
       }, 
       {
         "regex": "HPiPAQ([A-Za-z0-9]+)/(\\d+).(\\d+)", 
-        "device_replacement": "HP iPAQ $1"
+        "device_replacement": "HP iPAQ $1",
+        "manufacturer": "HP"
       }, 
       {
         "regex": "Palm([A-Za-z0-9]+)", 
-        "device_replacement": "Palm $1"
+        "device_replacement": "Palm $1",
+        "manufacturer": "Palm"
       }, 
       {
         "regex": "Treo([A-Za-z0-9]+)", 
-        "device_replacement": "Palm Treo $1"
+        "device_replacement": "Palm Treo $1",
+        "manufacturer": "Palm"
       }, 
       {
         "regex": "webOS.*(P160UNA)/(\\d+).(\\d+)", 
-        "device_replacement": "HP Veer"
+        "device_replacement": "HP Veer",
+        "manufacturer": "HP"
       }, 
       {
-        "regex": "(Kindle Fire)"
+        "regex": "(Kindle Fire)",
+        "manufacturer": "Amazon"
       }, 
       {
-        "regex": "(Kindle)"
+        "regex": "(Kindle)",
+        "manufacturer": "Amazon"
       }, 
       {
         "regex": "(Silk)/(\\d+)\\.(\\d+)(?:\\.([0-9\\-]+))?", 
-        "device_replacement": "Kindle Fire"
+        "device_replacement": "Kindle Fire",
+        "tablet": true,
+        "manufacturer": "Amazon"
       }, 
       {
-        "regex": "(iPad) Simulator;"
+        "regex": "(iPad) Simulator;",
+        "manufacturer": "Apple"
       }, 
       {
-        "regex": "(iPad);"
+        "regex": "(iPad);",
+        "manufacturer": "Apple"
       }, 
       {
-        "regex": "(iPod);"
+        "regex": "(iPod);",
+        "manufacturer": "Apple"
       }, 
       {
-        "regex": "(iPhone) Simulator;"
+        "regex": "(iPhone) Simulator;",
+        "manufacturer": "Apple"
       }, 
       {
-        "regex": "(iPhone);"
+        "regex": "(iPhone);",
+        "manufacturer": "Apple"
       }, 
       {
         "regex": "Nexus\\ ([A-Za-z0-9\\-]+)", 
@@ -848,29 +940,35 @@
       }, 
       {
         "regex": "acer_([A-Za-z0-9]+)_", 
-        "device_replacement": "Acer $1"
+        "device_replacement": "Acer $1",
+        "manufacturer": "Acer"
       }, 
       {
         "regex": "acer_([A-Za-z0-9]+)_", 
-        "device_replacement": "Acer $1"
+        "device_replacement": "Acer $1",
+        "manufacturer": "Acer"
       }, 
       {
         "regex": "Amoi\\-([A-Za-z0-9]+)", 
         "device_replacement": "Amoi $1",
-        "other": true
+        "other": true,
+        "manufacturer": "Amoi"
       }, 
       {
         "regex": "AMOI\\-([A-Za-z0-9]+)", 
         "device_replacement": "Amoi $1",
-        "other": true
+        "other": true,
+        "manufacturer": "Amoi"
       }, 
       {
         "regex": "Asus\\-([A-Za-z0-9]+)", 
-        "device_replacement": "Asus $1"
+        "device_replacement": "Asus $1",
+        "manufacturer": "Asus"
       }, 
       {
         "regex": "ASUS\\-([A-Za-z0-9]+)", 
-        "device_replacement": "Asus $1"
+        "device_replacement": "Asus $1",
+        "manufacturer": "Asus"
       }, 
       {
         "regex": "BIRD\\-([A-Za-z0-9]+)", 
@@ -889,7 +987,8 @@
       }, 
       {
         "regex": "Dell ([A-Za-z0-9]+)", 
-        "device_replacement": "Dell $1"
+        "device_replacement": "Dell $1",
+        "manufacturer": "Dell"
       }, 
       {
         "regex": "DoCoMo/2\\.0 ([A-Za-z0-9]+)", 
@@ -928,47 +1027,58 @@
       }, 
       {
         "regex": "Lenovo\\-([A-Za-z0-9]+)", 
-        "device_replacement": "Lenovo $1"
+        "device_replacement": "Lenovo $1",
+        "manufacturer": "Lenovo"
       }, 
       {
         "regex": "Lenovo\\_([A-Za-z0-9]+)", 
-        "device_replacement": "Lenovo $1"
+        "device_replacement": "Lenovo $1",
+        "manufacturer": "Levovo"
       }, 
       {
         "regex": "LG/([A-Za-z0-9]+)", 
-        "device_replacement": "LG $1"
+        "device_replacement": "LG $1",
+        "manufacturer": "LG"
       }, 
       {
         "regex": "LG-LG([A-Za-z0-9]+)", 
-        "device_replacement": "LG $1"
+        "device_replacement": "LG $1",
+        "manufacturer": "LG"
       }, 
       {
         "regex": "LGE-LG([A-Za-z0-9]+)", 
-        "device_replacement": "LG $1"
+        "device_replacement": "LG $1",
+        "manufacturer": "LG"
       }, 
       {
         "regex": "LGE VX([A-Za-z0-9]+)", 
-        "device_replacement": "LG $1"
+        "device_replacement": "LG $1",
+        "manufacturer": "LG"
       }, 
       {
         "regex": "LG ([A-Za-z0-9]+)", 
-        "device_replacement": "LG $1"
+        "device_replacement": "LG $1",
+        "manufacturer": "LG"
       }, 
       {
         "regex": "LGE LG\\-AX([A-Za-z0-9]+)", 
-        "device_replacement": "LG $1"
+        "device_replacement": "LG $1",
+        "manufacturer": "LG"
       }, 
       {
         "regex": "LG\\-([A-Za-z0-9]+)", 
-        "device_replacement": "LG $1"
+        "device_replacement": "LG $1",
+        "manufacturer": "LG"
       }, 
       {
         "regex": "LGE\\-([A-Za-z0-9]+)", 
-        "device_replacement": "LG $1"
+        "device_replacement": "LG $1",
+        "manufacturer": "LG"
       }, 
       {
         "regex": "LG([A-Za-z0-9]+)", 
-        "device_replacement": "LG $1"
+        "device_replacement": "LG $1",
+        "manufacturer": "LG"
       }, 
       {
         "regex": "(KIN)\\.One (\\d+)\\.(\\d+)", 
@@ -979,31 +1089,38 @@
         "device_replacement": "Microsoft $1"
       }, 
       {
-        "regex": "(Motorola)\\-([A-Za-z0-9]+)"
+        "regex": "(Motorola)\\-([A-Za-z0-9]+)",
+        "manufacturer": "Motorola"
       }, 
       {
         "regex": "MOTO\\-([A-Za-z0-9]+)", 
-        "device_replacement": "Motorola $1"
+        "device_replacement": "Motorola $1",
+        "manufacturer": "Motorola"
       }, 
       {
         "regex": "MOT\\-([A-Za-z0-9]+)", 
-        "device_replacement": "Motorola $1"
+        "device_replacement": "Motorola $1",
+        "manufacturer": "Motorola"
       }, 
       {
         "regex": "Philips([A-Za-z0-9]+)", 
-        "device_replacement": "Philips $1"
+        "device_replacement": "Philips $1",
+        "manufacturer": "Philips"
       }, 
       {
         "regex": "Philips ([A-Za-z0-9]+)", 
-        "device_replacement": "Philips $1"
+        "device_replacement": "Philips $1",
+        "manufacturer": "Philips"
       }, 
       {
         "regex": "SAMSUNG-([A-Za-z0-9\\-]+)", 
-        "device_replacement": "Samsung $1"
+        "device_replacement": "Samsung $1",
+        "manufacturer": "Samsung"
       }, 
       {
         "regex": "SAMSUNG\\; ([A-Za-z0-9\\-]+)", 
-        "device_replacement": "Samsung $1"
+        "device_replacement": "Samsung $1",
+        "manufacturer": "Samsung"
       }, 
       {
         "regex": "Softbank/1\\.0/([A-Za-z0-9]+)", 
@@ -1070,6 +1187,7 @@
       "Polaris", 
       "BREW", 
       "Chrome Mobile", 
+      "Chrome Mobile iOS",
       "UC Browser", 
       "Tizen Browser"
     ]

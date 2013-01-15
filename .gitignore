@@ -1,3 +1,13 @@
+node_modules
+.npm-debug.log
+tmp
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db
+build/detect.custom.js
 test.html
-.DS_Store banished!
-builds
