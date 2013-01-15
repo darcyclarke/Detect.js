@@ -1,14 +1,43 @@
 // Setup
-var detect		= require('../detect');
-var regexes		= require('../build/regexes');
-var util		= require('util');
+var util		  = require('util');
+var fs        = require('fs');
+var config    = require('../build/config');
+var regexes   = require('../build/regexes');
+var _this 		= function(){};
 
-var command		= (process.argv[2]) ? process.argv[2] : false,
-	type		= (process.argv[3]) ? process.argv[3] : false,
-	arguments	= (process.argv[4]) ? process.argv[4].split(' ') : false,
-	output		= [],
-	error		= false,
-	_this 		= function(){};
+// Utility Variables
+var ArrayProto = Array.prototype, 
+    ObjProto = Object.prototype, 
+    FuncProto = Function.prototype,
+    nativeForEach = ArrayProto.forEach,
+    nativeIndexOf = ArrayProto.indexOf;
+
+// Each Utility
+var each = forEach = function(obj, iterator, context) {
+  if (obj == null) return;
+  if (nativeForEach && obj.forEach === nativeForEach) {
+    obj.forEach(iterator, context);
+  } else if (obj.length === +obj.length) {
+    for (var i = 0, l = obj.length; i < l; i++) {
+      if (iterator.call(context, obj[i], i, obj) === breaker) return;
+    }
+  } else {
+    for (var key in obj) {
+      if (_.has(obj, key)) {
+        if (iterator.call(context, obj[key], key, obj) === breaker) return;
+      }
+    }
+  }
+};
+
+// Parsers
+_this.parsers = [
+  'device_parsers', 
+  'browser_parsers', 
+  'os_parsers', 
+  'mobile_os_families', 
+  'mobile_browser_families'
+];
 
 // Set Families
 _this.setFamilies = function(families){
@@ -72,26 +101,33 @@ _this.filterParsers = function(families, parsers){
   return regexes;
 };
 
-if(!command){
-	output.push('Error: No command passed');
-	error = true;
-}
-
-if(!type){
-	output.push('Error: No type passed');
-	error = true;
-}
-
-if(!arguments){
-	output.push('Error: No arguments passed');
-	error = true;
-}
-
 // Set Parsers
-detect.setParsers(regexes);
+_this.setParsers(regexes);
 
 // Set Families
-detect.setFamilies(arguments);
+_this.setFamilies(config);
 
-// Output
-console.log(detect.filterParsers());
+// Filter Parsers
+_this.filterParsers();
+
+// Cleanup Regex
+delete _this.regexes.regexes;
+
+// Set Content
+fs.readFile('detect.js', function(err, lines){
+
+  // Replace Regexes
+  var datetime = new Date();
+  lines = lines + '';
+  lines = lines.replace('var regexes = {}', 'var regexes = ' + JSON.stringify(_this.regexes));
+  lines = lines.replace('@createdat', '@createdat ' + datetime);
+
+  // Write to file
+  fs.writeFile('detect.custom.js', lines, function(err){
+    if(err){
+      console.log('Error: Issue writing to detect.custom.js');
+    } else {
+      console.log('Success: Created detect.custom.js');
+    }
+  });
+});

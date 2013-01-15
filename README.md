@@ -20,9 +20,21 @@ Features
 	* `minor`
 	* `patch` 
 	* **device** supports: `manufacturer` and `type` as well
+* Custom regex builds using **node.js**
+
+
+Creating a Custom Build
+-----------
+
+Creating a custom build of the regex profiles will help reduce file size and is strongly promoted. The default `detect.js` and `detect.min.js` files include **all** regex profiles and is therefor much larger then, I'm sure, your needs.
+
+1. Install **Node.js**: https://github.com/joyent/node/wiki/Installation 
+2. Edit  `build/config.js` with you're preferred **oss**, **devices** and **browsers**
+3. Run `node build/build.js`
+4. The build script should create a custom version of **Detect.js** at `build/detect.custom.js`
 
  
-Example
+Example Use
 -----------
 #### Plain JS:
 ```html

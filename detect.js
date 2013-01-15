@@ -601,6 +601,10 @@
           "os_replacement": "Windows 8"
         }, 
         {
+          "regex": "(Windows Phone 8)",
+          "os_replacement": "Windows Phone 8"
+        },
+        {
           "regex": "(Windows NT 5\\.0)", 
           "os_replacement": "Windows 2000"
         }, 
@@ -1193,6 +1197,7 @@
         "Polaris", 
         "BREW", 
         "Chrome Mobile", 
+        "Chrome Mobile iOS",
         "UC Browser", 
         "Tizen Browser"
       ]

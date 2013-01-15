@@ -1,5 +1,5 @@
 
-var config = root.config {
+var config = root.config = {
 	browser: 'firefox netscape opera chrome facebook twitter ie opera other'.split(' '),
 	device: 'wii kindle playstation nokia blackberry palm htc acer asus lenovo lg motorola phillips samsung other'.split(' '),
 	os: 'android webos windows symbian blackberry other'.split(' ')
