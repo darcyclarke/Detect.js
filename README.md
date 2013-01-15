@@ -26,7 +26,7 @@ Features
 Creating a Custom Build
 -----------
 
-Creating a custom build of the regex profiles will help reduce file size and is strongly promoted. The default `detect.js` and `detect.min.js` files include **all** regex profiles and is therefor much larger then, I'm sure, your needs.
+Creating a custom build of the regex profiles will help reduce file size and is strongly recommended. The default `detect.js` and `detect.min.js` files include **all** regex profiles and is therefor much larger then, I'm sure, your needs.
 
 1. Install **Node.js**: https://github.com/joyent/node/wiki/Installation 
 2. Edit  `build/config.js` with you're preferred **oss**, **devices** and **browsers**
