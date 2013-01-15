@@ -1,6 +1,6 @@
 {
   "name": "Detect.js",
-  "version": "2.0.0",
+  "version": "2.1.1",
   "author": "Darcy Clarke",
   "license": "Dual licensed under the MIT and GPL licenses.",
   "description": "JS Library to detect browser, os and device based on the UserAgent String",
