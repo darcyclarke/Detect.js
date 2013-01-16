@@ -3,7 +3,7 @@
  * https://github.com/darcyclarke/Detect.js
  * Dual licensed under the MIT and GPL licenses.
  *
- * @version 2.1.1
+ * @version 2.1.2
  * @author Darcy Clarke
  * @url http://darcyclarke.me
  *
@@ -1398,14 +1398,20 @@
       a = (!a) ? new UserAgent() : a;
 
       // Set Browser
-      a.browser.name = toString(a.browser);
-      a.browser.version = toVersionString(a.browser);
-      
+      if(check(a.browser)){
+        a.browser.name = toString(a.browser);
+        a.browser.version = toVersionString(a.browser);
+      } else {
+        a.browser = {};
+      }
+
       // Set OS
       a.os = find(ua, os_parsers);
       if(check(a.os)){
         a.os.name = toString(a.os);
         a.os.version = toVersionString(a.os);
+      } else {
+        a.os = {};
       }
 
       // Set Device
@@ -1450,7 +1456,7 @@
       remove([a.browser, a.os, a.device], ['tablet', 'man']);
 
       // Return Agent
-      return agent;
+      return a;
     }
 
     // Return context
