@@ -3,7 +3,7 @@
  * https://github.com/darcyclarke/Detect.js
  * Dual licensed under the MIT and GPL licenses.
  *
- * @version 2.1.2 - Custom Build
+ * @version 2.1.3 - Custom Build
  * @author Darcy Clarke
  * @url http://darcyclarke.me
  * @createdat
@@ -161,46 +161,19 @@
     // Parse User-Agent String
     _this.parse = function(ua){
 
-      // User-Agent Parsed
-      var ua_parsers = _this.regexes.browser_parsers.map(function(obj){
-        var regexp = new RegExp(obj.regex),
-            famRep = obj.family_replacement,
-            majorVersionRep = obj.major_version_replacement;
-
-        function parser(ua){
-          var m = ua.match(regexp);
-          if (!m)
-            return null;
-          var family = famRep ? famRep.replace('$1', m[1]) : m[1];
-          var ret = new UserAgent(family);
-          ret.browser.major = parseInt(majorVersionRep ? majorVersionRep : m[2]);
-          ret.browser.minor = m[3] ? parseInt(m[3]) : null;
-          ret.browser.patch = m[4] ? parseInt(m[4]) : null;
-          ret.browser.tablet = (obj.tablet);
-          ret.browser.man = obj.manufacturer || null;
-          return ret;
-        }
-        return parser;
-      });
-
-      // User Agent
-      var UserAgent = function(family){
-        this.browser = {};
-        this.browser.family = family || 'other';
-      }
-
       // Parsers Utility
       var parsers = function(type){
         return _this.regexes[type + '_parsers'].map(function(obj){
           var regexp = new RegExp(obj.regex),
-              rep = obj[type + '_replacement'];
+              rep = obj[( type === 'browser' ? 'family' : type ) + '_replacement'],
+              major_rep = obj.major_version_replacement;
           function parser(ua){
             var m = ua.match(regexp);
             if(!m)
               return null;
             var ret = {};
             ret.family = (rep ? rep.replace('$1', m[1]) : m[1]) || 'other';
-            ret.major = m[2] ? parseInt(m[2]) : null;
+            ret.major = parseInt(major_rep ? major_rep : m[2]) || null;
             ret.minor = m[3] ? parseInt(m[3]) : null;
             ret.patch = m[4] ? parseInt(m[4]) : null;
             ret.tablet = (obj.tablet);
@@ -211,6 +184,12 @@
         });
       };
 
+      // User Agent
+      var UserAgent = function(){};
+
+      // Browsers Parsed
+      var browser_parsers = parsers('browser');
+
       // Operating Systems Parsed
       var os_parsers = parsers('os');
 
@@ -218,10 +197,10 @@
       var device_parsers = parsers('device');
 
       // Set Agent
-      var agent = a = find(ua, ua_parsers);
-      a = (!a) ? new UserAgent() : a;
+      var agent = a = new UserAgent();
 
       // Set Browser
+      a.browser = find(ua, browser_parsers);
       if(check(a.browser)){
         a.browser.name = toString(a.browser);
         a.browser.version = toVersionString(a.browser);
