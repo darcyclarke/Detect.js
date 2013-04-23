@@ -3,7 +3,7 @@
  * https://github.com/darcyclarke/Detect.js
  * Dual licensed under the MIT and GPL licenses.
  *
- * @version 2.1.3 - Custom Build
+ * @version 2.1.5 - Custom Build
  * @author Darcy Clarke
  * @url http://darcyclarke.me
  * @createdat
@@ -15,7 +15,7 @@
  * console.log(agentInfo.browser.family); // Chrome
  *
  */
- 
+
 (function(root, undefined){
 
   // Detect
@@ -24,19 +24,19 @@
     // Context
     var _this = function(){};
 
-    // Regexes 
+    // Regexes
     var regexes = {};
 
-    // Parsers 
+    // Parsers
     _this.parsers = [
-      'device_parsers', 
-      'browser_parsers', 
-      'os_parsers', 
-      'mobile_os_families', 
+      'device_parsers',
+      'browser_parsers',
+      'os_parsers',
+      'mobile_os_families',
       'mobile_browser_families'
     ];
 
-    // Types 
+    // Types
     _this.types = ['browser', 'os', 'device'];
 
     // Regular Expressions
@@ -58,8 +58,8 @@
     })();
 
     // Utility Variables
-    var ArrayProto = Array.prototype, 
-        ObjProto = Object.prototype, 
+    var ArrayProto = Array.prototype,
+        ObjProto = Object.prototype,
         FuncProto = Function.prototype,
         nativeForEach = ArrayProto.forEach,
         nativeIndexOf = ArrayProto.indexOf;
@@ -88,9 +88,9 @@
     // Contains Utility
     var contains = function(obj, target) {
       var found = false;
-      if (obj == null) 
+      if (obj == null)
         return found;
-      if (nativeIndexOf && obj.indexOf === nativeIndexOf) 
+      if (nativeIndexOf && obj.indexOf === nativeIndexOf)
         return obj.indexOf(target) != -1;
       found = any(obj, function(value) {
         return value === target;
@@ -105,12 +105,12 @@
         obj.forEach(iterator, context);
       } else if (obj.length === +obj.length) {
         for (var i = 0, l = obj.length; i < l; i++) {
-          if (iterator.call(context, obj[i], i, obj) === breaker) return;
+          if (iterator.call(context, obj[i], i, obj) === {}) return;
         }
       } else {
         for (var key in obj) {
           if (_.has(obj, key)) {
-            if (iterator.call(context, obj[key], key, obj) === breaker) return;
+            if (iterator.call(context, obj[key], key, obj) === {}) return;
           }
         }
       }
@@ -234,11 +234,11 @@
       var mobile_os_families = _this.regexes.mobile_os_families.map(function(str) {
         mobile_agents[str] = true;
       });
-      
+
       // Is Spider
       if(a.browser.family === 'Spider'){
         a.device.type = 'Spider';
-      
+
       // Is Tablet
       } else if(a.browser.tablet || a.os.tablet || a.device.tablet){
         a.device.type = 'Tablet';
@@ -246,7 +246,7 @@
       // Is Mobile
       } else if(mobile_agents.hasOwnProperty(a.browser.family)){
         a.device.type = 'Mobile';
-      
+
       // Is Desktop
       } else {
         a.device.type = 'Desktop';
@@ -267,10 +267,10 @@
 
   })();
 
-  // Export the Underscore object for **Node.js** and **"CommonJS"**, 
-  // backwards-compatibility for the old `require()` API. If we're not 
-  // CommonJS, add `_` to the global object via a string identifier 
-  // the Closure Compiler "advanced" mode. Registration as an AMD 
+  // Export the Underscore object for **Node.js** and **"CommonJS"**,
+  // backwards-compatibility for the old `require()` API. If we're not
+  // CommonJS, add `_` to the global object via a string identifier
+  // the Closure Compiler "advanced" mode. Registration as an AMD
   // via define() happens at the end of this file
   if (typeof exports !== 'undefined') {
     if (typeof module !== 'undefined' && module.exports) {
@@ -281,7 +281,7 @@
     root['detect'] = detect;
   }
 
-  // AMD define happens at the end for compatibility with AMD 
+  // AMD define happens at the end for compatibility with AMD
   // that don't enforce next-turn semantics on modules
   if (typeof define === 'function' && define.amd) {
     define(function(require) {
