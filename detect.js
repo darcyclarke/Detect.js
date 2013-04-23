@@ -3,7 +3,7 @@
  * https://github.com/darcyclarke/Detect.js
  * Dual licensed under the MIT and GPL licenses.
  *
- * @version 2.1.4
+ * @version 2.1.5
  * @author Darcy Clarke
  * @url http://darcyclarke.me
  *
@@ -1296,12 +1296,12 @@
         obj.forEach(iterator, context);
       } else if (obj.length === +obj.length) {
         for (var i = 0, l = obj.length; i < l; i++) {
-          if (iterator.call(context, obj[i], i, obj) === breaker) return;
+          if (iterator.call(context, obj[i], i, obj) === {}) return;
         }
       } else {
         for (var key in obj) {
           if (_.has(obj, key)) {
-            if (iterator.call(context, obj[key], key, obj) === breaker) return;
+            if (iterator.call(context, obj[key], key, obj) === {}) return;
           }
         }
       }
