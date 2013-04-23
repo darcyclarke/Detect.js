@@ -1,7 +1,7 @@
 Detect.js
 =========
 
-@version 2.1.4
+@version 2.1.5
 
 **Note:** Detect.js is a JavaScript library to detect platforms, versions, manufacturers and types based on the `navigator.userAgent` string. This code is based on, and modified from, the original work of Tobie Langel's UA-Parser: https://github.com/tobie/ua-parser. UA-Parser is subsequently a port of [BrowserScope][1]'s [user agent string parser][2].
 
@@ -18,7 +18,7 @@ Features
 	* `version`
 	* `major`
 	* `minor`
-	* `patch` 
+	* `patch`
 	* **device** supports: `manufacturer` and `type` as well
 * Custom regex builds using **node.js**
 
@@ -28,12 +28,12 @@ Creating a Custom Build
 
 Creating a custom build of the regex profiles will help reduce file size and is strongly recommended. The default `detect.js` and `detect.min.js` files include **all** regex profiles and is therefor much larger then, I'm sure, your needs.
 
-1. Install **Node.js**: https://github.com/joyent/node/wiki/Installation 
+1. Install **Node.js**: https://github.com/joyent/node/wiki/Installation
 2. Edit  `build/config.js` with you're preferred **oss**, **devices** and **browsers**
 3. Run `node build/build.js`
 4. The build script should create a custom version of **Detect.js** at `build/detect.custom.js`
 
- 
+
 Example Use
 -----------
 #### Plain JS:
@@ -45,7 +45,7 @@ Example Use
 
 /*
 iPhone 4 Example User Agent:
-Mozilla/5.0 (iPhone; U; CPU iPhone OS 4_0 like Mac OS X; en-us) AppleWebKit/532.9 (KHTML, like Gecko) Version/4.0.5 Mobile/8A293 Safari/6531.22.7 
+Mozilla/5.0 (iPhone; U; CPU iPhone OS 4_0 like Mac OS X; en-us) AppleWebKit/532.9 (KHTML, like Gecko) Version/4.0.5 Mobile/8A293 Safari/6531.22.7
 */
 
 var ua = detect.parse(navigator.userAgent);
