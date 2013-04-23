@@ -2,7 +2,6 @@
   "name": "Detect.js",
   "version": "2.1.5",
   "author": "Darcy Clarke",
-  "license": "Dual licensed under the MIT and GPL licenses.",
   "description": "JS Library to detect browser, os and device based on the UserAgent String",
   "main": "detect.js",
   "repository": {
@@ -16,5 +15,20 @@
     "parsing",
     "useragent",
     "detection"
+  ],
+  "main": "Gruntfile.js",
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "devDependencies": {
+    "wrench":"1.4.4",
+    "grunt": "~0.4.0",
+    "mustache": "0.7.0"
+  },
+  "peerDependencies": {
+    "grunt": "~0.4.0"
+  },
+  "keywords": [
+    "gruntplugin","css","dss","styles","docs","documentation","cli"
   ]
 }
