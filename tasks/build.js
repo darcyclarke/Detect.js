@@ -1,40 +1,35 @@
-
-// Setup
+// Require
 var util      = require('util');
 var request   = require('request');
 var fs        = require('fs');
 var yaml      = require('yamljs');
+var diff      = require('diff');
 var _this     = function(){};
 
 // Expose
 module.exports = function(grunt) {
 
-  // Base64
-  var keyStr64 = "ABCDEFGHIJKLMNOP" + "QRSTUVWXYZabcdef" + "ghijklmnopqrstuv" + "wxyz0123456789+/" + "=";
-  var encode64 = function(a){a=escape(a);var b="";var c,d,e="";var f,g,h,i="";var j=0;do{c=a.charCodeAt(j++);d=a.charCodeAt(j++);e=a.charCodeAt(j++);f=c>>2;g=(c&3)<<4|d>>4;h=(d&15)<<2|e>>6;i=e&63;if(isNaN(d)){h=i=64}else if(isNaN(e)){i=64}b=b+keyStr64.charAt(f)+keyStr64.charAt(g)+keyStr64.charAt(h)+keyStr64.charAt(i);c=d=e="";f=g=h=i=""}while(j<a.length);return b};
-  var decode64 = function(a){var b="";var c,d,e="";var f,g,h,i="";var j=0;var k=/[^A-Za-z0-9\+\/\=]/g;if(k.exec(a)){}a=a.replace(/[^A-Za-z0-9\+\/\=]/g,"");do{f=keyStr64.indexOf(a.charAt(j++));g=keyStr64.indexOf(a.charAt(j++));h=keyStr64.indexOf(a.charAt(j++));i=keyStr64.indexOf(a.charAt(j++));c=f<<2|g>>4;d=(g&15)<<4|h>>2;e=(h&3)<<6|i;b=b+String.fromCharCode(c);if(h!=64){b=b+String.fromCharCode(d)}if(i!=64){b=b+String.fromCharCode(e)}c=d=e="";f=g=h=i=""}while(j<a.length);return unescape(b)};
+  // Defaults
   var url = 'https://api.github.com/repos/';
 
   // Register Build
   grunt.registerTask('build', 'Build the regex profiles and Detect.js', function(){
 
-    // Run async
     var done = this.async();
 
-    // UA-Parser
     request.get('http://raw.github.com/tobie/ua-parser/master/regexes.yaml', function(error, response, body){
-      var remote = yaml.parse(body);
       if(error){
         console.log('UA-Parser error:', error);
       } else {
+        var remote = yaml.parse(body);
         request.get(url + 'darcyclarke/Repo.js/contents/regexes.json', function(error, response, body){
           if(error){
             console.log('Repo.js error:', error);
           } else {
-            var local = body;
-            // Check Diff
-            if(local !== remote){
-              console.log(remote);
+
+            if(body !== remote){
+              var changes = diff.diffLines(body, remote);
+              console.log(changes);
             } else {
               console.log('No Changes!');
             }
