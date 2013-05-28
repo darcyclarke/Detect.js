@@ -6,7 +6,7 @@
  * @version 2.2.0
  * @author Darcy Clarke
  * @url http://darcyclarke.me
- * @createdat Mon Apr 29 2013 19:34:56 GMT-0500 (CDT)
+ * @createdat Tue May 28 2013 17:44:02 GMT-0500 (CDT)
  *
  * Based on UA-Parser (https://github.com/tobie/ua-parser) by Tobie Langel
  *
@@ -1127,7 +1127,8 @@
                 a.device.version = toVersionString(a.device);
             } else {
                 a.device = {
-                    tablet: false
+                    tablet: false,
+                    family: "Other"
                 };
             }
             // Determine Device Type

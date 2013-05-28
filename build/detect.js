@@ -297,7 +297,10 @@
         a.device.name = toString(a.device);
         a.device.version = toVersionString(a.device);
       } else {
-        a.device = { tablet: false };
+        a.device = {
+          tablet: false,
+          family: 'Other'
+        };
       }
 
       // Determine Device Type
