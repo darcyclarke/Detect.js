@@ -565,6 +565,10 @@
         "os_v1_replacement": "3"
       }, 
       {
+        "regex": "(Silk-Accelerated=[a-z]{4,5})",
+        "os_replacement": "Android"
+      },
+      {
         "regex": "(Windows Phone 6\\.5)"
       }, 
       {
