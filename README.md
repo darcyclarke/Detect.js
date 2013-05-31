@@ -1,7 +1,7 @@
 Detect.js
 =========
 
-@version 2.1.5
+@version 2.2.0
 
 **Note:** Detect.js is a JavaScript library to detect platforms, versions, manufacturers and types based on the `navigator.userAgent` string. This code is based on, and modified from, the original work of Tobie Langel's UA-Parser: https://github.com/tobie/ua-parser. UA-Parser is subsequently a port of [BrowserScope][1]'s [user agent string parser][2].
 
@@ -30,7 +30,7 @@ Creating a custom build of the regex profiles will help reduce file size and is 
 
 1. Install **Node.js**: https://github.com/joyent/node/wiki/Installation
 2. Edit  `build/config.js` with you're preferred **oss**, **devices** and **browsers**
-3. Run `node build/build.js`
+3. Run `node build/build.js --input=build/detect.js --output=build/detect.custom.js`
 4. The build script should create a custom version of **Detect.js** at `build/detect.custom.js`
 
 
@@ -82,6 +82,11 @@ var ua = detect.parse(navigator.userAgent);
 ...
 ````
 
+Hacking
+-------
+* Install development dependencies using `npm install`.
+* Install the pre-commit hook by running `hooks/install.sh`.
+* Kick off the default build (which will generate `detect.js` and `detect.min.js`) with `npm start`.
 
 Licensing
 ---------

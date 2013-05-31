@@ -1,0 +1,31 @@
+#!/usr/local/bin/node
+
+var childProcess = require('child_process')
+
+childProcess.exec('git status -s', function (error, stdout, stderr) {
+  if (error) throw error;
+  var lines = stdout.toString().split('\n');
+  var shouldRebuild = lines.some(function (line) {
+    return !!line.match(/^\s*[ADM]\s+(build\/|package\.json).*$/);
+  });
+
+  if (shouldRebuild) {
+    console.log('Rebuilding...');
+    rebuild();
+  }
+});
+
+function rebuild() {
+  childProcess.exec('npm start', function (error, stdout, stderr) {
+    if (error) throw error;
+    console.log('Files built, adding to the git index...');
+    addFiles();
+  });
+}
+
+function addFiles() {
+  childProcess.exec('git add detect.js detect.min.js README.md', function (error, stdout, stderr) {
+    if (error) throw error;
+    console.log('Pre-commit complete.');
+  });
+}
