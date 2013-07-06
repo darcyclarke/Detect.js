@@ -273,6 +273,9 @@
       // Set Agent
       var agent = a = new UserAgent();
 
+      // Remember the original user agent string
+      a.source = ua;
+
       // Set Browser
       a.browser = find(ua, browser_parsers);
       if(check(a.browser)){
