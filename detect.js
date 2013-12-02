@@ -6,7 +6,7 @@
  * @version 2.2.0
  * @author Darcy Clarke
  * @url http://darcyclarke.me
- * @createdat Fri Jul 05 2013 18:08:27 GMT-0700 (PDT)
+ * @createdat Mon Dec 02 2013 14:47:23 GMT+0100 (W. Europe Standard Time)
  *
  * Based on UA-Parser (https://github.com/tobie/ua-parser) by Tobie Langel
  *
@@ -1103,7 +1103,7 @@
             // Devices Parsed
             var device_parsers = parsers("device");
             // Set Agent
-            var agent = a = new UserAgent();
+            var a = new UserAgent();
             // Remember the original user agent string
             a.source = ua;
             // Set Browser

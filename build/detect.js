@@ -271,7 +271,7 @@
       var device_parsers = parsers('device');
 
       // Set Agent
-      var agent = a = new UserAgent();
+      var a = new UserAgent();
 
       // Remember the original user agent string
       a.source = ua;
