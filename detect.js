@@ -3,10 +3,10 @@
  * https://github.com/darcyclarke/Detect.js
  * Dual licensed under the MIT and GPL licenses.
  *
- * @version 2.2.0
+ * @version 2.2.1
  * @author Darcy Clarke
  * @url http://darcyclarke.me
- * @createdat Mon Dec 02 2013 14:47:23 GMT+0100 (W. Europe Standard Time)
+ * @createdat Thu Feb 13 2014 11:36:42 GMT+0000 (WET)
  *
  * Based on UA-Parser (https://github.com/tobie/ua-parser) by Tobie Langel
  *
@@ -477,6 +477,9 @@
                 regex: "(Teleca)",
                 family_replacement: "Teleca Browser",
                 other: true
+            }, {
+                regex: "Trident(.*)rv.(\\d+)\\.(\\d+)",
+                family_replacement: "IE"
             }, {
                 regex: "(MSIE) (\\d+)\\.(\\d+)",
                 family_replacement: "IE"
