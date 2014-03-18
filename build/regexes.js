@@ -529,6 +529,10 @@
         "other": true
       }, 
       {
+        "regex": "Trident(.*)rv.(\\d+)\\.(\\d+)",
+        "family_replacement": "IE"
+      }, 
+      {
         "regex": "(MSIE) (\\d+)\\.(\\d+)", 
         "family_replacement": "IE"
       }
