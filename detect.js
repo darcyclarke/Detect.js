@@ -263,6 +263,9 @@
                 regex: "(facebookexternalhit)/(\\d+)\\.(\\d+)",
                 family_replacement: "FacebookBot"
             }, {
+                regex: "Facebot",
+                family_replacement: "FacebookBot"
+            }, {
                 regex: "(Twitterbot)/(\\d+)\\.(\\d+)",
                 family_replacement: "TwitterBot"
             }, {
