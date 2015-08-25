@@ -1,6 +1,17 @@
 Detect.js
 =========
 
+Attention
+--------
+This is a fork to update original Detect.js.
+Updates for Win10/Edge are based in [MSDN Library](https://msdn.microsoft.com/en-us/library/hh869301%28v=vs.85%29.aspx?f=255&MSPPError=-2147217396).
+
+**NEEDS MORE TESTING**
+
+
+
+Original README
+--------
 @version 2.2.1
 
 **Note:** Detect.js is a JavaScript library to detect platforms, versions, manufacturers and types based on the `navigator.userAgent` string. This code is based on, and modified from, the original work of Tobie Langel's UA-Parser: https://github.com/tobie/ua-parser. UA-Parser is subsequently a port of [BrowserScope][1]'s [user agent string parser][2].
