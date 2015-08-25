@@ -11,3 +11,4 @@ ehthumbs.db
 Thumbs.db
 build/detect.custom.js
 test.html
+*.log
