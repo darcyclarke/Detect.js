@@ -1,15 +1,3 @@
-Attention
---------
-This is a fork to update original Detect.js.
-Updates for Win10/Edge are based in [MSDN Library](https://msdn.microsoft.com/en-us/library/hh869301%28v=vs.85%29.aspx?f=255&MSPPError=-2147217396).
-
-**NEEDS MORE TESTING**
-
-
-
-Original README
---------
-
 Detect.js
 =========
 @version 2.2.1
