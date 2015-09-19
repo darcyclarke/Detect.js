@@ -6,7 +6,7 @@
  * @version 2.2.1
  * @author Darcy Clarke
  * @url http://darcyclarke.me
- * @createdat Thu Feb 13 2014 11:36:42 GMT+0000 (WET)
+ * @createdat Sat Sep 12 2015 04:10:03 GMT-0300 (Hora oficial do Brasil)
  *
  * Based on UA-Parser (https://github.com/tobie/ua-parser) by Tobie Langel
  *
@@ -263,9 +263,6 @@
                 regex: "(facebookexternalhit)/(\\d+)\\.(\\d+)",
                 family_replacement: "FacebookBot"
             }, {
-                regex: "Facebot",
-                family_replacement: "FacebookBot"
-            }, {
                 regex: "(Twitterbot)/(\\d+)\\.(\\d+)",
                 family_replacement: "TwitterBot"
             }, {
@@ -486,6 +483,9 @@
             }, {
                 regex: "(MSIE) (\\d+)\\.(\\d+)",
                 family_replacement: "IE"
+            }, {
+                regex: "(Edge)/(\\d+)\\.(\\d+)",
+                family_replacement: "Edge"
             } ],
             os_parsers: [ {
                 regex: "(Android) (\\d+)\\.(\\d+)(?:[.\\-]([a-z0-9]+))?"
@@ -529,6 +529,9 @@
                 os_replacement: "Windows Vista"
             }, {
                 regex: "(Windows 98|Windows XP|Windows ME|Windows 95|Windows CE|Windows 7|Windows NT 4\\.0|Windows Vista|Windows 2000)"
+            }, {
+                regex: "(Windows NT 6\\.4|Windows NT 10\\.0)",
+                os_replacement: "Windows 10"
             }, {
                 regex: "(Windows NT 6\\.2)",
                 os_replacement: "Windows 8"
