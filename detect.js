@@ -6,7 +6,7 @@
  * @version 2.2.1
  * @author Darcy Clarke
  * @url http://darcyclarke.me
- * @createdat Sat Sep 12 2015 04:10:03 GMT-0300 (Hora oficial do Brasil)
+ * @createdat Wed Sep 23 2015 11:52:31 GMT-0300 (E. South America Standard Time)
  *
  * Based on UA-Parser (https://github.com/tobie/ua-parser) by Tobie Langel
  *
@@ -168,6 +168,9 @@
                 regex: "(Opera)/9.80.*Version/(\\d+)\\.(\\d+)(?:\\.(\\d+))?",
                 family_replacement: "Opera"
             }, {
+                regex: "(OPR)/(\\d+)\\.(\\d+)(?:\\.(\\d+))?",
+                family_replacement: "Opera"
+            }, {
                 regex: "(webOSBrowser)/(\\d+)\\.(\\d+)",
                 family_replacement: "webOS"
             }, {
@@ -227,6 +230,9 @@
                 regex: "Minimo",
                 family_replacement: "Minimo",
                 other: true
+            }, {
+                regex: "(Edge)/(\\d+)\\.(\\d+)",
+                family_replacement: "Edge"
             }, {
                 regex: "(CrMo)/(\\d+)\\.(\\d+)\\.(\\d+)\\.(\\d+)",
                 family_replacement: "Chrome Mobile"
@@ -483,9 +489,6 @@
             }, {
                 regex: "(MSIE) (\\d+)\\.(\\d+)",
                 family_replacement: "IE"
-            }, {
-                regex: "(Edge)/(\\d+)\\.(\\d+)",
-                family_replacement: "Edge"
             } ],
             os_parsers: [ {
                 regex: "(Android) (\\d+)\\.(\\d+)(?:[.\\-]([a-z0-9]+))?"

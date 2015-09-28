@@ -131,7 +131,11 @@
         "regex": "(Opera)/9.80.*Version/(\\d+)\\.(\\d+)(?:\\.(\\d+))?",
         "family_replacement": "Opera"
       }, 
-      {
+	  {
+        "regex": "(OPR)/(\\d+)\\.(\\d+)(?:\\.(\\d+))?",
+		"family_replacement": "Opera"
+      },
+	  {
         "regex": "(webOSBrowser)/(\\d+)\\.(\\d+)",
         "family_replacement": "webOS"
       }, 
@@ -207,6 +211,10 @@
         "family_replacement": "Minimo",
         "other": true
       }, 
+	  {
+        "regex": "(Edge)/(\\d+)\\.(\\d+)",
+        "family_replacement": "Edge"
+      },
       {
         "regex": "(CrMo)/(\\d+)\\.(\\d+)\\.(\\d+)\\.(\\d+)", 
         "family_replacement": "Chrome Mobile"
@@ -536,10 +544,7 @@
         "regex": "(MSIE) (\\d+)\\.(\\d+)", 
         "family_replacement": "IE"
       },
-	  {
-        "regex": "(Edge)/(\\d+)\\.(\\d+)",
-        "family_replacement": "Edge"
-      },
+	  
     ], 
     os_parsers: [
       {
