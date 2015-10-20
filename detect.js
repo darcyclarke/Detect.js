@@ -6,7 +6,7 @@
  * @version 2.2.1
  * @author Darcy Clarke
  * @url http://darcyclarke.me
- * @createdat Thu Feb 13 2014 11:36:42 GMT+0000 (WET)
+ * @createdat Wed Sep 23 2015 11:52:31 GMT-0300 (E. South America Standard Time)
  *
  * Based on UA-Parser (https://github.com/tobie/ua-parser) by Tobie Langel
  *
@@ -168,6 +168,9 @@
                 regex: "(Opera)/9.80.*Version/(\\d+)\\.(\\d+)(?:\\.(\\d+))?",
                 family_replacement: "Opera"
             }, {
+                regex: "(OPR)/(\\d+)\\.(\\d+)(?:\\.(\\d+))?",
+                family_replacement: "Opera"
+            }, {
                 regex: "(webOSBrowser)/(\\d+)\\.(\\d+)",
                 family_replacement: "webOS"
             }, {
@@ -228,6 +231,9 @@
                 family_replacement: "Minimo",
                 other: true
             }, {
+                regex: "(Edge)/(\\d+)\\.(\\d+)",
+                family_replacement: "Edge"
+            }, {
                 regex: "(CrMo)/(\\d+)\\.(\\d+)\\.(\\d+)\\.(\\d+)",
                 family_replacement: "Chrome Mobile"
             }, {
@@ -261,9 +267,6 @@
                 other: true
             }, {
                 regex: "(facebookexternalhit)/(\\d+)\\.(\\d+)",
-                family_replacement: "FacebookBot"
-            }, {
-                regex: "Facebot",
                 family_replacement: "FacebookBot"
             }, {
                 regex: "(Twitterbot)/(\\d+)\\.(\\d+)",
@@ -529,6 +532,9 @@
                 os_replacement: "Windows Vista"
             }, {
                 regex: "(Windows 98|Windows XP|Windows ME|Windows 95|Windows CE|Windows 7|Windows NT 4\\.0|Windows Vista|Windows 2000)"
+            }, {
+                regex: "(Windows NT 6\\.4|Windows NT 10\\.0)",
+                os_replacement: "Windows 10"
             }, {
                 regex: "(Windows NT 6\\.2)",
                 os_replacement: "Windows 8"

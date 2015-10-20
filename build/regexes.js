@@ -13,7 +13,7 @@
  */
 (function(root, undefined){
 
-  // Regex
+  // Regex 
   var regexes = root.regexes = {
     browser_parsers: [
       {
@@ -131,7 +131,11 @@
         "regex": "(Opera)/9.80.*Version/(\\d+)\\.(\\d+)(?:\\.(\\d+))?",
         "family_replacement": "Opera"
       }, 
-      {
+	  {
+        "regex": "(OPR)/(\\d+)\\.(\\d+)(?:\\.(\\d+))?",
+		"family_replacement": "Opera"
+      },
+	  {
         "regex": "(webOSBrowser)/(\\d+)\\.(\\d+)",
         "family_replacement": "webOS"
       }, 
@@ -207,6 +211,10 @@
         "family_replacement": "Minimo",
         "other": true
       }, 
+	  {
+        "regex": "(Edge)/(\\d+)\\.(\\d+)",
+        "family_replacement": "Edge"
+      },
       {
         "regex": "(CrMo)/(\\d+)\\.(\\d+)\\.(\\d+)\\.(\\d+)", 
         "family_replacement": "Chrome Mobile"
@@ -532,10 +540,11 @@
         "regex": "Trident(.*)rv.(\\d+)\\.(\\d+)",
         "family_replacement": "IE"
       }, 
-      {
+	  {
         "regex": "(MSIE) (\\d+)\\.(\\d+)", 
         "family_replacement": "IE"
-      }
+      },
+	  
     ], 
     os_parsers: [
       {
@@ -594,6 +603,10 @@
       {
         "regex": "(Windows 98|Windows XP|Windows ME|Windows 95|Windows CE|Windows 7|Windows NT 4\\.0|Windows Vista|Windows 2000)"
       }, 
+	  {
+        "regex": "(Windows NT 6\\.4|Windows NT 10\\.0)",
+        "os_replacement": "Windows 10"
+      },
       {
         "regex": "(Windows NT 6\\.2)", 
         "os_replacement": "Windows 8"
