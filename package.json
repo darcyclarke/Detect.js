@@ -27,6 +27,6 @@
     "mocha": "*"
   },
   "scripts": {
-    //"test": "mocha -u tdd -R min ./tests/test.js"
+    //"test": "mocha -u tdd ./tests/test.js"
   }
 }
