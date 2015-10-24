@@ -22,6 +22,11 @@
   ],
   "devDependencies": {
     "optimist": "~0.4",
-    "uglify-js": "~2.2"
+    "uglify-js": "~2.2",
+	"yamlparser": ">=0.0.2",
+    "mocha": "*"
+  },
+  "scripts": {
+    //"test": "mocha -u tdd ./tests/test.js"
   }
 }
