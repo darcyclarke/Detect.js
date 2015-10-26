@@ -89,7 +89,7 @@ Hacking
 
 Credits
 -------
-Thanks to [Adriano Caheté](https://github.com/AdrianoCahete) and [Julian](https://github.com/julmot),
+Thanks to [Adriano Caheté](https://github.com/AdrianoCahete) and [Julian](https://github.com/julmot)
 
 Licensing
 ---------
