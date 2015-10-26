@@ -3,10 +3,10 @@
  * https://github.com/darcyclarke/Detect.js
  * Dual licensed under the MIT and GPL licenses.
  *
- * @version 2.2.1
+ * @version 2.2.2
  * @author Darcy Clarke
  * @url http://darcyclarke.me
- * @createdat Wed Sep 23 2015 11:52:31 GMT-0300 (E. South America Standard Time)
+ * @createdat Mon Oct 26 2015 08:21:54 GMT-0200 (Horário brasileiro de verão)
  *
  * Based on UA-Parser (https://github.com/tobie/ua-parser) by Tobie Langel
  *

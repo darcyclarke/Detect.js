@@ -1,6 +1,6 @@
 {
   "name": "Detect.js",
-  "version": "2.2.1",
+  "version": "2.2.2",
   "author": "Darcy Clarke",
   "license": "Dual licensed under the MIT and GPL licenses.",
   "description": "JS Library to detect browser, os and device based on the UserAgent String",
@@ -25,8 +25,5 @@
     "uglify-js": "~2.2",
 	"yamlparser": ">=0.0.2",
     "mocha": "*"
-  },
-  "scripts": {
-    //"test": "mocha -u tdd ./tests/test.js"
   }
 }
