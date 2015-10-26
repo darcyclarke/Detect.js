@@ -1,7 +1,6 @@
 Detect.js
 =========
-
-@version 2.2.1
+@version 2.2.2
 
 **Note:** Detect.js is a JavaScript library to detect platforms, versions, manufacturers and types based on the `navigator.userAgent` string. This code is based on, and modified from, the original work of Tobie Langel's UA-Parser: https://github.com/tobie/ua-parser. UA-Parser is subsequently a port of [BrowserScope][1]'s [user agent string parser][2].
 
@@ -87,6 +86,10 @@ Hacking
 * Install development dependencies using `npm install`.
 * Install the pre-commit hook by running `hooks/install.sh`.
 * Kick off the default build (which will generate `detect.js` and `detect.min.js`) with `npm start`.
+
+Credits
+-------
+Thanks to [Adriano Caheté](https://github.com/AdrianoCahete) and [Julian](https://github.com/julmot),
 
 Licensing
 ---------
