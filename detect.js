@@ -6,7 +6,7 @@
  * @version 2.2.2
  * @author Darcy Clarke
  * @url http://darcyclarke.me
- * @createdat Mon Oct 26 2015 08:21:54 GMT-0200 (Horário brasileiro de verão)
+ * @createdat Mon Dec 28 2015 12:24:14 GMT+0100 (CET)
  *
  * Based on UA-Parser (https://github.com/tobie/ua-parser) by Tobie Langel
  *
@@ -1193,4 +1193,4 @@
             return detect;
         });
     }
-})(window);
+})(typeof window === "undefined" ? {} : window);

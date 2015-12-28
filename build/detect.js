@@ -368,4 +368,4 @@
       return detect;
     });
   }
-})(window);
+})(typeof window === 'undefined' ? {} : window);
