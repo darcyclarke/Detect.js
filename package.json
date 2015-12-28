@@ -23,9 +23,10 @@
     "detection"
   ],
   "devDependencies": {
+    "chai": "*",
+    "mocha": "*",
     "optimist": "~0.4",
     "uglify-js": "~2.2",
-	"yamlparser": ">=0.0.2",
-    "mocha": "*"
+    "yamlparser": ">=0.0.2"
   }
 }
