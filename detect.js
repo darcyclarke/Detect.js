@@ -3,10 +3,10 @@
  * https://github.com/darcyclarke/Detect.js
  * Dual licensed under the MIT and GPL licenses.
  *
- * @version 2.2.2
+ * @version 2.2.3
  * @author Darcy Clarke
  * @url http://darcyclarke.me
- * @createdat Mon Oct 26 2015 08:21:54 GMT-0200 (Horário brasileiro de verão)
+ * @createdat Sat Aug 06 2016 19:50:24 GMT-0300 (Hora oficial do Brasil)
  *
  * Based on UA-Parser (https://github.com/tobie/ua-parser) by Tobie Langel
  *
@@ -533,11 +533,14 @@
             }, {
                 regex: "(Windows 98|Windows XP|Windows ME|Windows 95|Windows CE|Windows 7|Windows NT 4\\.0|Windows Vista|Windows 2000)"
             }, {
-                regex: "(Windows NT 6\\.4|Windows NT 10\\.0)",
-                os_replacement: "Windows 10"
-            }, {
                 regex: "(Windows NT 6\\.2)",
                 os_replacement: "Windows 8"
+            }, {
+                regex: "(Windows NT 6\\.3)",
+                os_replacement: "Windows 8.1"
+            }, {
+                regex: "(Windows NT 6\\.4|Windows NT 10\\.0)",
+                os_replacement: "Windows 10"
             }, {
                 regex: "(Windows Phone 8)",
                 os_replacement: "Windows Phone 8"

@@ -115,6 +115,10 @@ var regexes = {
       "regex": "(Opera)/9.80.*Version/(\\d+)\\.(\\d+)(?:\\.(\\d+))?",
       "family_replacement": "Opera"
     },
+	{
+		"regex": "(OPR)/(\\d+)\\.(\\d+)(?:\\.(\\d+))?",
+		"family_replacement": "Opera"
+	},
     {
       "regex": "(webOSBrowser)/(\\d+)\\.(\\d+)",
       "family_replacement": "webOS"
@@ -191,6 +195,10 @@ var regexes = {
       "family_replacement": "Minimo",
       "other": true
     },
+	{
+		"regex": "(Edge)/(\\d+)\\.(\\d+)",
+		"family_replacement": "Edge"
+	},
     {
       "regex": "(CrMo)/(\\d+)\\.(\\d+)\\.(\\d+)\\.(\\d+)",
       "family_replacement": "Chrome Mobile"
@@ -552,6 +560,10 @@ var regexes = {
       "regex": "(Android) Honeycomb",
       "os_v1_replacement": "3"
     },
+	{
+		"regex": "(Silk-Accelerated=[a-z]{4,5})",
+		"os_replacement": "Android"
+	},
     {
       "regex": "(Windows Phone 6\\.5)"
     },
@@ -578,6 +590,14 @@ var regexes = {
       "regex": "(Windows NT 6\\.2)",
       "os_replacement": "Windows 8"
     },
+	{
+      "regex": "(Windows NT 6\\.3)",
+      "os_replacement": "Windows 8\\.1"
+    },
+	 {
+		"regex": "(Windows NT 6\\.4|Windows NT 10\\.0)",
+		"os_replacement": "Windows 10"
+	},
     {
       "regex": "(Windows Phone 8)",
       "os_replacement": "Windows Phone 8"
