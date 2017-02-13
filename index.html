@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Detect JS</title>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://cdn.rawgit.com/darcyclarke/Detect.js/v2.2.2/detect.js"></script>
+    <meta name="viewport" content="width=device-width,
+    height=device-height, initial-scale=1.0, user-scalable=no,
+    maximum-scale=1.0, minimal-ui"/>
+</head>
+<body>
+<div class="detectjs-page">
+    <h1>Demo page of Detect.js </h1> <strong>v2.2.2</strong>
+    <div class="right-inner-addon ">
+        <i class="icon-search"></i>
+        <input type="search"
+               class="form-control"
+               placeholder="Enter UserAgent" id="search"/>
+    </div>
+    <div>
+        <table class="ua-info">
+            <tr>
+                <td colspan="2" class="caption">browser</td>
+            </tr>
+            <tr>
+                <td>family</td>
+                <td id="browser-family"></td>
+            </tr>
+            <tr>
+                <td>name</td>
+                <td id="browser-name"></td>
+            </tr>
+            <tr>
+                <td>version</td>
+                <td id="browser-version"></td>
+            </tr>
+            <tr>
+                <td>major</td>
+                <td id="browser-major"></td>
+            </tr>
+            <tr>
+                <td>minor</td>
+                <td id="browser-minor"></td>
+            </tr>
+            <tr>
+                <td>patch</td>
+                <td id="browser-patch"></td>
+            </tr>
+            <tr>
+                <td colspan="2" class="caption">device</td>
+            </tr>
+            <tr>
+                <td>family</td>
+                <td id="device-family"></td>
+            </tr>
+            <tr>
+                <td>name</td>
+                <td id="device-name"></td>
+            </tr>
+            <tr>
+                <td>version</td>
+                <td id="device-version"></td>
+            </tr>
+            <tr>
+                <td>major</td>
+                <td id="device-major"></td>
+            </tr>
+            <tr>
+                <td>minor</td>
+                <td id="device-minor"></td>
+            </tr>
+            <tr>
+                <td>patch</td>
+                <td id="device-patch"></td>
+            </tr>
+            <tr>
+                <td>type</td>
+                <td id="device-type"></td>
+            </tr>
+            <tr>
+                <td>manufacturer</td>
+                <td id="device-manufacturer"></td>
+            </tr>
+            <tr>
+                <td colspan="2" class="caption">os</td>
+            </tr>
+            <tr>
+                <td>family</td>
+                <td id="os-family"></td>
+            </tr>
+            <tr>
+                <td>name</td>
+                <td id="os-name"></td>
+            </tr>
+            <tr>
+                <td>version</td>
+                <td id="os-version"></td>
+            </tr>
+            <tr>
+                <td>major</td>
+                <td id="os-major"></td>
+            </tr>
+            <tr>
+                <td>minor</td>
+                <td id="os-minor"></td>
+            </tr>
+            <tr>
+                <td>patch</td>
+                <td id="os-patch"></td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<script>
+    function render(ua) {
+        var info = [
+            {
+                item: 'browser',
+                props: [
+                    'family',
+                    'name',
+                    'version',
+                    'major',
+                    'minor',
+                    'patch'
+                ]
+            },
+            {
+                item: 'device',
+                props: [
+                    'family',
+                    'name',
+                    'version',
+                    'major',
+                    'minor',
+                    'patch',
+                    'type',
+                    'manufacturer'
+                ]
+            },
+            {
+                item: 'os',
+                props: [
+                    'family',
+                    'name',
+                    'version',
+                    'major',
+                    'minor',
+                    'patch'
+                ]
+            }
+        ];
+        for (var x = 0; x < info.length; x++) {
+            if (ua[info[x].item] != null) {
+                for (var y = 0; y < info[x].props.length; y++) {
+                    //console.log(x,y,info[x].item+'-'+info[x].props[y]);
+                    var p = ua[info[x].item][info[x].props[y]];
+                    if (p == undefined) {
+                        p = '<span class="disabled">' + p + '</span>';
+                    }
+                    document.getElementById(info[x].item + '-' + info[x].props[y]).innerHTML = p;
+                }
+            }
+        }
+    }
+    $(function () {
+        $('#search').on('input paste', function () {
+            var ua = detect.parse($(this).val());
+            //console.log(ua.browser.family);
+            render(ua);
+        }).val(navigator.userAgent);
+        render(detect.parse(navigator.userAgent));
+    });
+</script>
+</body>
+</html>
