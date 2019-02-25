@@ -1,8 +1,6 @@
 Detect.js
 =========
 
-:exclamation: **NOTE: THIS PLUGIN IS NO LONGER MAINTAINED. If you encounter a [bug](https://github.com/darcyclarke/Detect.js/issues) then you're probably on your own. Try [Bowser](https://github.com/ded/bowser) as an alternative.**
-
 **Note:** Detect.js is a JavaScript library to detect platforms, versions, manufacturers and types based on the `navigator.userAgent` string. This code is based on, and modified from, the original work of Tobie Langel's UA-Parser: https://github.com/tobie/ua-parser. UA-Parser is subsequently a port of [BrowserScope][1]'s [user agent string parser][2].
 
 As initially touted, the biggest contribution to this code is the work of Steve Souders and the list of regex tests.
