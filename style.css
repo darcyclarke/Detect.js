@@ -1,0 +1,122 @@
+html {
+    font-family: sans-serif;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    color: #333;
+    font-size: 14px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    line-height: 1.42857;
+}
+
+.detectjs-page {
+    margin: 0 auto;
+    width: 1000px;
+}
+.detectjs-page h1 {
+    display: inline;
+    font-size: 1.5em;
+}
+
+.detectjs-page .form-control::-moz-placeholder {
+    color: #999;
+}
+
+.detectjs-page button, .detectjs-page input, .detectjs-page select, .detectjs-page textarea {
+    margin: 0;
+    font-size: 100%;
+    font-family: inherit;
+}
+
+.detectjs-page button, .detectjs-page input {
+    line-height: normal;
+}
+
+.detectjs-page input, .detectjs-page button, .detectjs-page select, .detectjs-page textarea {
+    font-size: inherit;
+    font-family: inherit;
+    line-height: inherit;
+}
+
+.detectjs-page button, .detectjs-page input, .detectjs-page select[multiple], .detectjs-page textarea {
+    background-image: none;
+}
+
+.detectjs-page .form-control {
+    display: block;
+    padding: 6px 12px;
+    width: 100%;
+    height: 34px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+    color: #555;
+    vertical-align: middle;
+    font-size: 14px;
+    line-height: 1.42857;
+    transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+}
+
+.detectjs-page input[type="search"] {
+    box-sizing: content-box;
+}
+
+.detectjs-page input[type="search"] {
+    box-sizing: border-box;
+}
+
+.detectjs-page .right-inner-addon {
+    margin-bottom: 25px;
+}
+
+.detectjs-page .right-inner-addon input {
+    padding-right: 30px;
+}
+
+.detectjs-page .form-control:focus {
+    outline: 0 none;
+    border-color: #66afe9;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(102, 175, 233, 0.6);
+}
+
+/*------------*/
+.ua-info {
+    width: 500px;
+}
+
+.ua-info, .ua-info tr, .ua-info td {
+    margin: 0;
+    padding: 0;
+    border-collapse: collapse;
+
+}
+
+.ua-info td {
+    border: 1px solid #000;
+
+}
+
+.ua-info .caption {
+    text-align: center;
+    font-weight: bold;
+}
+
+.ua-info .disabled {
+    color: #ccc;
+}
+
+/*------------*/
+@media screen and (max-width: 980px) {
+    .detectjs-page {
+        width: 100%;
+    }
+
+    .ua-info {
+        width: 90%;
+    }
+}
